@@ -17,6 +17,7 @@ public class SecDBManager {
 	
 	String[] items;
 	
+	/* Connect to DB. */
 	public SecDBManager() {
 		String conStr = "jdbc:mysql://localhost:3306/" + Common.stockDb;
 		try {
@@ -29,6 +30,7 @@ public class SecDBManager {
 		}
 	}
 	
+	/* Sets the StockMaster data. */
 	private void setStockMaster(String itemName, String itemCategory) {
 		try {
 			// convert to lower case before inserting.
@@ -116,6 +118,19 @@ public class SecDBManager {
 		}
 	}
 	
+	// overloaded
+	private void setItemStock(int itemId, double qty, Date date) {
+		try {			
+			String query = "insert into itemStock values (" + itemId + "," + qty + ","
+					+ "'" + date + "'" + ")";			
+				
+			int rs = st.executeUpdate(query);
+		}
+		catch(Exception stEx) {
+			stEx.printStackTrace();
+		}
+	}
+	
 	/* updates the table ItemAddTransaction for newly added stock for 
 	 * a particular item. 
 	 */
@@ -132,6 +147,7 @@ public class SecDBManager {
 		}
 	}
 
+	/* Update the ItemStock table. */
 	private void updateItemStock(int itemId, double qty, Date date) {
 		try {			
 			String query = "update itemstock set availableqty = " + qty + " , lastupdated = "
@@ -183,7 +199,7 @@ public class SecDBManager {
 	}
 	
 	/* Retrieves the id of the stock, given its name. */
-	private int getStockIdFromName(String itemName) {
+	public int getStockIdFromName(String itemName) {
 		int id = 0;
 		try {
 			itemName = itemName.toLowerCase();
@@ -200,6 +216,7 @@ public class SecDBManager {
 		
 		return id;
 	}
+	
 	
 	/*Get the last updated date from itemaddtransaction table. */
 	private Date getLastDateUpdated(int itemId) {
@@ -344,7 +361,7 @@ public class SecDBManager {
 		return rs;
 	}
 	
-	/* Get the itemId from itemName. */
+	/* Get the itemId from itemName. */	
 	public int getItemIdFromName(String itemName) {
 		int itemId = 0;
 		try {
@@ -360,6 +377,7 @@ public class SecDBManager {
 		
 		return itemId;
 	}
+	
 	
 	/* get row data from stockitems, given itemname. */
 	public ResultSet getStockItemsTableFromName(String itemName) {

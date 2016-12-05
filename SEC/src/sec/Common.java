@@ -5,6 +5,7 @@ public class Common {
 
 	/* This class is meant to hold and return all constant values.
 	 * 
+	 * 
 	 */	
 	
 	// The database constants.
