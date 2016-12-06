@@ -29,5 +29,10 @@ b. mysql -u username -p stock < dump.sql <br>
 
 In order to run the application, follow the following steps: <br>
 1. Download SEC.jar <br>
-2. Run as jar -jar SEC.jar or double-click to launch. <br>
+2. Run as jar -jar SEC.jar <dbusername> <dbpassword>, where <br>
+dbusername => username for MySQL access
+dbpassword => password for MySQL access.
+
+The application will still launch without providing the command-line arguments, but
+will not be able to store or retreive data.
 
