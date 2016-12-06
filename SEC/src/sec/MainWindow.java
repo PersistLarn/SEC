@@ -43,6 +43,30 @@ public class MainWindow extends JPanel{
 	}
 	
 	public static void main(String[] args) {
+		
+		/* Added these variables for external users who would try running
+		 * this application to be able to access their MySQL database.
+		 * 
+		 */
+		try {
+			/* Won't block the application from running so that viewers can
+			 * atleast have a look at the GUI if no db is set up. 
+			 */
+			if(args[0] == null || args[1] == null) {
+				System.out.println("Please provide a username and password of your database.");			
+			}	
+			else {
+				String userName = args[0];
+				String password = args[1];
+			 
+				Common.dbUser = userName;
+				Common.dbPwd = password;
+			}
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		 
 		JFrame guiApp = new JFrame();
 		MainWindow mainWindow = new MainWindow();
 		

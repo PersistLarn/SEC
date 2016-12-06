@@ -10,8 +10,8 @@ public class Common {
 	
 	// The database constants.
 	public static final String stockDb = "Stock";
-	public static final String dbUser = "root";
-	public static final String dbPwd = "root";
+	public static String dbUser = "root";
+	public static String dbPwd = "root";
 	
 	// The UI constants.
 	public static final int FRAME_Y = 1500;
