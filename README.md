@@ -20,6 +20,13 @@ Hence the following tables need to be created in database Stock:
 2. ItemStock
 3. ItemAddTransaction.
 
+In order to create the tables, do the following:
+1. Use the dump file dump.sql in https://github.com/PersistLarn/SEC/tree/master/Database to create 
+the database and tables.
+Use 'Data Import' from the file, if using an GUI or  if using the command-line:
+a. Create a database stock.
+b. mysql -u username -p stock < dump.sql
+
 In order to run the application, follow the following steps:
 1. Download SEC.jar
 2. Run as jar -jar SEC.jar or double-click to launch.
