@@ -118,6 +118,7 @@ public class StockUI extends JPanel {
 	    right.setPreferredSize(new Dimension(Common.R_PANEL_X,Common.R_PANEL_Y));
 	    splitPane1.setRightComponent(right);    
 	    
+	    
 	    panel1.add(splitPane1);    
 	   	
 	    //set background colour.
@@ -240,6 +241,7 @@ public class StockUI extends JPanel {
 		Font tf = new Font("SANS_SERIF", Font.BOLD, Common.TABLE_HEADER_FONT);
 		table.getTableHeader().setFont(tf);
 		table.getTableHeader().setForeground(Color.RED);
+		
 		return table;
 	}
 	
@@ -424,20 +426,24 @@ public class StockUI extends JPanel {
 			        .getLastSelectedPathComponent();
 			
 			CardLayout c1;
+			c1 = (CardLayout)(cards.getLayout());
+			
 			switch(selectedNode.toString()) {
-			case Common.VIEW_STOCK_REPORT:c1 = (CardLayout)(cards.getLayout());
-								c1.show(cards, "Card1");
-									break;
-			case Common.ADD_NEW_ITEM:c1 = (CardLayout)(cards.getLayout());
+			case Common.VIEW_STOCK_REPORT:		
+										c1.show(cards, "Card1");
+										break;
+			case Common.ADD_NEW_ITEM:
 								c1.show(cards, "Card2");
 								break;
-			case Common.UPDATE_STOCK:c1 = (CardLayout)(cards.getLayout());
+			case Common.UPDATE_STOCK:
 								c1.show(cards, "Card3");
 								break;
 							
 			default: c1 = (CardLayout)(cards.getLayout());
-					c1.show(cards, "Card1");				
+					c1.show(cards, "Card1");					
 			}
+			
+			
 		}
 	}
 	
